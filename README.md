@@ -33,7 +33,7 @@ $ source bin/activate
 # Install dependencies
 $ pip install -r requirements.txt
 
-# Start PostgreSQL database and run it in the background
+# Start PostgreSQL database and run it in the background, this will take a while the first time you run it
 $ docker-compose up -d
 
 # Start Django development server
