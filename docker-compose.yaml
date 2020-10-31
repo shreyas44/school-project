@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  db:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: social
+      POSTGRES_PASSWORD: school
+
+volumes:
+  db-data:
