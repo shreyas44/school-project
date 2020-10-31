@@ -42,5 +42,5 @@ $ python manage.py runserver
 
 You should now have a folder named school-project in your Documents folder. Open the folder in VS Code, make changes and watch the changes appear in the browser!
 
-To view the running application, go to https://localhost:8000
+To view the running application, go to http://localhost:8000
 
