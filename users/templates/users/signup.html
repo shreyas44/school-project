@@ -12,13 +12,14 @@
     <div class="main">
       <div class="form-container">
         <form method="post" class="form">
-          <input type="text" class="input" placeholder="First Name" />
-          <input type="text" class="input" placeholder="Last Name" />
-          <input type="text" class="input" placeholder="Username" />
-          <input type="password" class="input password-field" placeholder="Password"/>
-          <input type="password" class="input password-field" placeholder="Re-Enter Password"/>
+          {% csrf_token %}
+          <input type="text" class="input" placeholder="First Name" name="firstname" />
+          <input type="text" class="input" placeholder="Last Name" name="lastname" />
+          <input type="text" class="input" placeholder="Username" name="username"/>
+          <input type="password" class="input password-field" placeholder="Password" name="password" />
+          <input type="password" class="input password-field" placeholder="Re-Enter Password" name="repassword" />
           <button class="submit-button">
-            Login
+            Sign Up
           </button>
           <div class="form-links">
             <a class="form-link" href="/user/login">Already have an account? Login now!</a>
