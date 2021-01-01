@@ -59,7 +59,8 @@ body {
   color: #888888;
 }
 
-.post-container {
+.post-container,
+.new-post-form {
   width: 100%;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -92,10 +93,6 @@ body {
   fill: green;
 }
 
-/* .post-like-button.fill:hover svg {
-  fill: gr;
-} */
-
 .post-like-count {
   position: relative;
   top: 2px;
@@ -103,4 +100,50 @@ body {
   /* font-size: 18px; */
   font-weight: 100;
   color: #999;
+}
+
+.new-post-form {
+  padding: 25px;
+}
+
+.new-post-form form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.new-post-button {
+  background-color: white;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  max-width: 100px;
+  margin-top: 20px;
+}
+
+.new-post-body {
+  resize: none;
+  font-size: 15px;
+  border: none;
+  cursor: text;
+}
+
+/* Credits: https://stackoverflow.com/questions/20726174/placeholder-for-contenteditable-div */
+
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  position: absolute;
+  color: gray;
+  background-color: transparent;
+}
+
+.new-post-body {
+  outline: none;
+}
+
+.new-post-button:hover {
+  background-color: #eee;
 }

@@ -15,10 +15,20 @@
     <div class="header">Home Page!</div>
     <div class="main-wrapper">
       <div class="main-container">
-        {% comment %} New Post Form {% endcomment %} {% comment %}
-        <div class="new-post-form"></div>
-        {% endcomment %} {% comment %} Posts {% endcomment %} {% for post in
-        posts %}
+        {% comment %} New Post Form {% endcomment %}
+
+        <div class="new-post-form">
+          <form method="post" action="/newPost">
+            <div
+              class="new-post-body"
+              placeholder="What do you want to share today?"
+              contenteditable="true"
+            ></div>
+            <button class="new-post-button">Post</button>
+          </form>
+        </div>
+
+        {% comment %} Posts {% endcomment %} {% for post in posts %}
         <div class="post-container">
           <div class="post-info-container">
             <div class="post-user-image">
