@@ -9,5 +9,29 @@
   </head>
   <body>
     <div class="header">Home Page!</div>
+    <div class="main-wrapper">
+      <div class="main-container">
+       {% for post in posts %}
+          <div class="post-container">
+            <div class="post-info-container">
+              <div class="post-user-image">
+                <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" />
+              </div>
+              <div class="post-info">
+                <div class="post-username">
+                  {{post.user.username}} 
+                </div>
+                <div class="post-timestamp">
+                  {{post.timestamp}}
+                </div>
+              </div>
+            </div> 
+            <div class="post-content">
+              <div class="post-body">{{post.body}}</div>
+            </div>
+          </div>
+       {% endfor %} 
+      </div>
+    </div>
   </body>
 </html>
