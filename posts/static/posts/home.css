@@ -71,3 +71,36 @@ body {
 .post-content {
   padding: 15px;
 }
+
+.post-stats {
+  padding: 0 15px 15px;
+}
+
+.post-like-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-like-button {
+  cursor: pointer;
+  color: rgb(0, 61, 0);
+}
+
+.post-like-button:hover svg,
+.post-like-button.fill svg {
+  fill: green;
+}
+
+/* .post-like-button.fill:hover svg {
+  fill: gr;
+} */
+
+.post-like-count {
+  position: relative;
+  top: 2px;
+  margin-left: 10px;
+  /* font-size: 18px; */
+  font-weight: 100;
+  color: #999;
+}

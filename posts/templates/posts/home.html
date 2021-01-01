@@ -1,36 +1,66 @@
-{% include "head.html" %}
-{% load static %}
+{% include "head.html" %} {% load static %}
 
 <!DOCTYPE html>
 <html>
   {% block common_head %}
-    <link href="{% static 'posts/home.css' %}" rel="stylesheet" />
+  <link href="{% static 'posts/home.css' %}" rel="stylesheet" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'posts/home.js' %}"></script>
   {% endblock common_head %}
-  </head>
   <body>
     <div class="header">Home Page!</div>
     <div class="main-wrapper">
       <div class="main-container">
-       {% for post in posts %}
-          <div class="post-container">
-            <div class="post-info-container">
-              <div class="post-user-image">
-                <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" />
-              </div>
-              <div class="post-info">
-                <div class="post-username">
-                  {{post.user.username}} 
-                </div>
-                <div class="post-timestamp">
-                  {{post.timestamp}}
-                </div>
-              </div>
-            </div> 
-            <div class="post-content">
-              <div class="post-body">{{post.body}}</div>
+        {% comment %} New Post Form {% endcomment %} {% comment %}
+        <div class="new-post-form"></div>
+        {% endcomment %} {% comment %} Posts {% endcomment %} {% for post in
+        posts %}
+        <div class="post-container">
+          <div class="post-info-container">
+            <div class="post-user-image">
+              <img
+                src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+              />
+            </div>
+            <div class="post-info">
+              <div class="post-username">{{post.user.username}}</div>
+              <div class="post-timestamp">{{post.timestamp}}</div>
             </div>
           </div>
-       {% endfor %} 
+          <div class="post-content">
+            <div class="post-body">{{post.body}}</div>
+          </div>
+          <div class="post-stats">
+            <div class="post-like-container">
+              <div
+                class="post-like-button {% if post.is_liked %}fill{% endif %}"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <input type="hidden" value="{{post.id}}" />
+                  <path
+                    d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
+                  ></path>
+                </svg>
+              </div>
+              <div class="post-like-count">{{post.likes_count}}</div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </body>

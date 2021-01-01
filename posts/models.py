@@ -17,7 +17,7 @@ class PostFile(models.Model):
     db_table = "PostFiles"
 
 class Like(models.Model):
-  post = models.ForeignKey(Post, on_delete=models.CASCADE)
+  post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="likes")
   timestamp = models.FloatField()
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -25,7 +25,7 @@ class Like(models.Model):
     db_table = "Likes"
 
 class Comment(models.Model):
-  post = models.ForeignKey(Post, on_delete=models.CASCADE)
+  post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   body = models.CharField(max_length=5000)
   timestamp = models.FloatField()
