@@ -1,7 +1,7 @@
 from users.models import User
 from users.forms import LoginForm, SignupForm
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -29,7 +29,9 @@ def login_view(request):
       print(errors)
       return render(request, "users/login.html", {"errors": errors, "values": user_info})
 
-    # if form.is_valid():
+  if "user_id" in request.session.keys():
+    return redirect("home")
+
   return render(request, "users/login.html")
 
 def signup_view(request):
@@ -59,5 +61,7 @@ def signup_view(request):
     else:
       return render(request, "users/signup.html", {"errors": errors, "values": user_info})
 
-    print(user_info)
+  if "user_id" in request.session.keys():
+    return redirect("home")
+
   return render(request, "users/signup.html")
