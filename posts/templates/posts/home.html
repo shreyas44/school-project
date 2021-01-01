@@ -1,0 +1,13 @@
+{% include "head.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  {% block common_head %}
+    <link href="{% static 'posts/home.css' %}" rel="stylesheet" />
+  {% endblock common_head %}
+  </head>
+  <body>
+    <div class="header">Home Page!</div>
+  </body>
+</html>
