@@ -22,12 +22,12 @@ def login_view(request):
         errors = {
           "global": ["Invalid Username or Password Entered"]
         }
-        return render(request, "users/login.html", {"errors": errors})
+        return render(request, "users/login.html", {"errors": errors, "values": user_info})
 
       request.session["user_id"] = user.id
     else:
       print(errors)
-      return render(request, "users/login.html", {"errors": errors})
+      return render(request, "users/login.html", {"errors": errors, "values": user_info})
 
     # if form.is_valid():
   return render(request, "users/login.html")
@@ -51,13 +51,13 @@ def signup_view(request):
         errors = {
           "repassword": ["The passwords you entered don't match"]
         }
-        return render(request, "users/signup.html", {"errors", errors})
+        return render(request, "users/signup.html", {"errors": errors, "values": user_info})
 
       del user_info["repassword"]
       new_user = User(**user_info)
       new_user.save()
     else:
-      return render(request, "users/signup.html", {"errors", errors})
+      return render(request, "users/signup.html", {"errors": errors, "values": user_info})
 
     print(user_info)
   return render(request, "users/signup.html")
