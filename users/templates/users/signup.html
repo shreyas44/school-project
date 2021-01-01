@@ -1,0 +1,30 @@
+{% include "head.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  {% block common_head %}
+    <link href="{% static 'users/users.css' %}" rel="stylesheet" />
+  {% endblock common_head %}
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="main">
+      <div class="form-container">
+        <form method="post" class="form">
+          <input type="text" class="input" placeholder="First Name" />
+          <input type="text" class="input" placeholder="Last Name" />
+          <input type="text" class="input" placeholder="Username" />
+          <input type="password" class="input password-field" placeholder="Password"/>
+          <input type="password" class="input password-field" placeholder="Re-Enter Password"/>
+          <button class="submit-button">
+            Login
+          </button>
+          <div class="form-links">
+            <a class="form-link" href="/user/login">Already have an account? Login now!</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
