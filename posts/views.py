@@ -55,3 +55,12 @@ def toggle_like(request):
     return HttpResponse(response)
 
   return HttpResponseForbidden()
+
+def new_post(request):
+  if request.method == "POST":
+    post = Post(user_id=request.session["user_id"], timestamp=time.time(), body=request.POST.get("body"))
+    post.save()
+
+    return redirect("home")
+
+  return HttpResponseForbidden()

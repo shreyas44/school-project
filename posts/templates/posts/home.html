@@ -19,10 +19,12 @@
 
         <div class="new-post-form">
           <form method="post" action="/newPost">
+            <textarea style="display: none" name="body"></textarea>
             <div
               class="new-post-body"
               placeholder="What do you want to share today?"
               contenteditable="true"
+              name="body"
             ></div>
             <button class="new-post-button">Post</button>
           </form>

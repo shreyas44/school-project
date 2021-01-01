@@ -20,4 +20,10 @@ $(document).ready(function () {
     });
     $(this).toggleClass("fill");
   });
+
+  $(".new-post-body").on("input", function () {
+    const text = $(this).text();
+    $(this).parent().children("textarea").text(text);
+    console.log(text);
+  });
 });
