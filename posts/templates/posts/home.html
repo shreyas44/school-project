@@ -12,7 +12,9 @@
   <script src="{% static 'posts/home.js' %}"></script>
   {% endblock common_head %}
   <body>
-    <div class="header">Home Page!</div>
+    <div class="header">
+      <div><a href="/logout">Logout</a></div>
+    </div>
     <div class="main-wrapper">
       <div class="main-container">
         {% comment %} New Post Form {% endcomment %}

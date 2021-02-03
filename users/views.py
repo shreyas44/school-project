@@ -1,3 +1,4 @@
+from django.db.models.fields import URLField
 from users.models import User
 from users.forms import LoginForm, SignupForm
 from django.http.response import HttpResponse
@@ -18,6 +19,7 @@ def login_view(request):
 
     if len(errors) == 0:
       user = User.objects.filter(username=user_info["username"], password=user_info["password"]).first()
+
       if user is None:
         errors = {
           "global": ["Invalid Username or Password Entered"]
@@ -29,6 +31,7 @@ def login_view(request):
       print(errors)
       return render(request, "users/login.html", {"errors": errors, "values": user_info})
 
+  # check if user is logged in
   if "user_id" in request.session.keys():
     return redirect("home")
 
@@ -65,3 +68,9 @@ def signup_view(request):
     return redirect("home")
 
   return render(request, "users/signup.html")
+
+def logout_view(request):
+  if "user_id" in request.session.keys():
+    del request.session["user_id"]
+
+  return redirect("login")

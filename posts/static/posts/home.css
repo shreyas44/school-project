@@ -10,6 +10,28 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: white;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 150px;
+}
+
+.header > div {
+  padding: 10px;
+  border-radius: 7px;
+  background-color: rgb(209, 50, 50);
+  cursor: pointer;
+}
+
+.header > div:hover {
+  background-color: rgb(187, 47, 47);
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .main-wrapper {
